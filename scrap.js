@@ -25,7 +25,9 @@ module.exports.download = async function (userinput) {
   name = userinput.trim();
   return new Promise(async (resolve, reject) => {
     const browser = await puppeteer.launch({
-      headless: true
+      headless: true,
+      executablePath: '/usr/bin/chromium-browser',
+        args: ['--no-sandbox', "--disabled-setupid-sandbox"]
     });
 
 
